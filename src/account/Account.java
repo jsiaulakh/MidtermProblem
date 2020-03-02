@@ -8,6 +8,7 @@ package account;
 /**
  * date: March 2nd
  * @author Sivagama
+ * Modified by Jaspreet Singh
  */
 public class Account {
 
@@ -20,9 +21,14 @@ public class Account {
       * @param initialBalance 
       */
         public Account(double initialBalance,String givenUser)
-        {
+        {   // Added validator to check intitial amount on account opening
+            if(initialBalance > 50){
             balance=initialBalance;
             user=givenUser;
+            System.out.println("Account was created");
+            }else{
+                System.out.println("Initial balance must be more than 50 bucks");
+            }
             //Note that the initial balance must be greater than 50.       
         }
 
@@ -55,6 +61,16 @@ public class Account {
         public double getInterestRate() 
         {
             return interestRate;
+        }
+        
+        public double interestCalc(int time){
+            double interest = ((getBalance()*3)/100*(time * 1.0));
+            return interest;
+        }
+        
+        public double finalAmount(int time){
+            double finalAm = getBalance() + interestCalc(time);
+            return finalAm;
         }
 
     /**user is the read only field

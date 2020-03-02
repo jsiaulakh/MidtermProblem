@@ -8,6 +8,7 @@ import java.util.Scanner;
 /**
  * date: March 2nd
  * @author Sivagama
+ * Modified by Jaspreet Singh
  */
 public class AccountTester {
     
@@ -24,11 +25,14 @@ public class AccountTester {
         System.out.println("Please enter the unique user name:");
         sc.nextLine();
         String user=sc.nextLine();
-        
         Account a=new Account(bal,user);
         ac[0]=a;
-             
-        System.out.println("The balance is: "+a.getBalance());  
-        System.out.println("The InterestRate per month is "+a.getInterestRate());
+        System.out.println("The Customer Name is: "+a.getUser());  
+        System.out.println("The balance is: "+a.getBalance());
+        System.out.println("Please enter the time to check final amount at that period:");
+        int time = sc.nextInt();
+        System.out.println("The Final Amount after " + time + " months is "+ a.finalAmount(time));
+
+        
     }
 }
